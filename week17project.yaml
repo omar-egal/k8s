@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: week17project
+  labels:
+    app: week17project
+spec:
+  selector:
+    matchLabels:
+      app: week17project
+  revisionHistoryLimit: 10
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: week17project
+    spec:
+      containers:
+        - name: nginx
+          imagePullPolicy: Always
+          image: nginx
+          ports:
+            - containerPort: 80
+              protocol: TCP
