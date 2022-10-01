@@ -12,7 +12,7 @@ spec:
     - name: nginx-web
       image: nginx
       ports:
-      - containerPort: 30000
+      - containerPort: 80
         name: web-service
       volumeMounts:
         - name: shared-data
